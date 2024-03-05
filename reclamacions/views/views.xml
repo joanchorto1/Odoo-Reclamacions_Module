@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+        <!-- vista formulario -->
+        <record id="view_form_reclamacion" model="ir.ui.view">
+            <field name="name">reclamacion.form</field>
+            <field name="model">reclamacion.reclamacion</field>
+            <field name="arch" type="xml">
+                <form string="Reclamacion">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="resolution"/>
+                            <field name="customer_id"/>
+                            <field name="user_id"/>
+                            <field name="creation_date"/>
+                            <field name="modification_date"/>
+                            <field name="closing_date"/>
+                            <field name="sale_order_id"/>
+                            <field name="message_ids"/>
+                            <field name="invoice_count"/>
+                            <field name="delivery_count"/>
+                            <field name="state"/>
+                            <field name="closing_reason_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- vista lista -->
+        <record id="view_tree_reclamacion" model="ir.ui.view">
+            <field name="name">reclamacion.tree</field>
+            <field name="model">reclamacion.reclamacion</field>
+            <field name="arch" type="xml">
+                <tree string="Reclamacion">
+                    <field name="name"/>
+                    <field name="customer_id"/>
+                    <field name="user_id"/>
+                    <field name="creation_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- acción -->
+        <record id="action_reclamaciones" model="ir.actions.act_window">
+            <field name="name">Reclamaciones</field>
+            <field name="res_model">reclamacion.reclamacion</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- menú -->
+        <menuitem id="menu_reclamaciones" name="Reclamaciones" action="action_reclamaciones"/>
+    </data>
+</odoo>
