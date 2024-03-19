@@ -6,6 +6,9 @@
             <field name="model">reclamacion.reclamacion</field>
             <field name="arch" type="xml">
                 <form string="Reclamacion">
+                    <header>
+                        <button name="button_cancel_sale_order" string="Cancelar Pedido de Venta" type="object" class="oe_highlight"/>
+                    </header>
                     <sheet>
                         <group>
                             <field name="name"/>
@@ -19,7 +22,7 @@
                             <field name="sale_order_id"/>
                             <field name="message_ids"/>
                             <field name="invoice_count"/>
-                            <field name="delivery_count"/>
+                            <!-- <field name="delivery_count"/> -->
                             <field name="state"/>
                             <field name="closing_reason_id"/>
                         </group>
