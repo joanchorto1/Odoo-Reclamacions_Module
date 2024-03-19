@@ -1,5 +1,6 @@
 {
     'name': "Reclamaciones",
+    'application': True,
     'version': '1.0',
     'depends': ['base', 'sale'],
     'author': "Grup2 Eric Ortega Joan Chortó",
@@ -9,10 +10,8 @@
     """,
     'data': [
         'security/ir.model.access.csv',
-        'views/reclamacion_views.xml',
+        'views/views.xml',
     ],
-    'demo': [
-        'demo/demo.xml',
-    ],
-}
+   
+    }
 

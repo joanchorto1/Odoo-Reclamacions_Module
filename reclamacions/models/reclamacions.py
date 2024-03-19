@@ -1,4 +1,3 @@
-
 from odoo import models, fields, api
 
 class Reclamacion(models.Model):
@@ -30,7 +29,16 @@ class Reclamacion(models.Model):
         for rec in self:
             rec.invoice_count = len(rec.sale_order_id.invoice_ids)
 
-    @api.depends('sale_order_id.picking_ids')
-    def _compute_delivery_count(self):
-        for rec in self:
-            rec.delivery_count = len(rec.sale_order_id.picking_ids)
+    # @api.depends('sale_order_id.picking_ids')
+    # def _compute_delivery_count(self):
+    #     for rec in self:
+    #         rec.delivery_count = len(rec.sale_order_id.picking_ids)
+
+    # def button_return_stock(self):
+    #     for rec in self:
+    #         pickings = rec.sale_order_id.picking_ids
+    #         for picking in pickings:
+    #             if picking.state == 'done':
+    #                 picking.action_cancel()
+    #                 for move in picking.move_lines:
+    #                     move.product_id.qty_available += move.product_uom_qty

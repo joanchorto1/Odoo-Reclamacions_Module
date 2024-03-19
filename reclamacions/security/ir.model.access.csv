@@ -1,6 +1,4 @@
-
-
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_reclamacion,access_reclamacion,reclamacion.model_reclamacion,base.group_user,1,1,1,1
-access_mensaje,access_mensaje,reclamacion.model_mensaje,base.group_user,1,1,1,1
-access_motivo,access_motivo,reclamacion.model_motivo,base.group_user,1,1,1,1
+access_reclamacion,access_reclamacion,reclamacions.model_reclamacion_reclamacion,base.group_user,1,1,1,
+access_mensaje,access_mensaje,reclamacions.model_reclamacion_mensaje,base.group_user,1,1,1,1
+access_motivo,access_motivo,reclamacions.model_reclamacion_motivo,base.group_user,1,1,1,1

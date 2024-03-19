@@ -1,3 +1,5 @@
+from odoo import models, fields, api
+
 class Mensaje(models.Model):
     _name = 'reclamacion.mensaje'
     _description = 'Mensaje'
