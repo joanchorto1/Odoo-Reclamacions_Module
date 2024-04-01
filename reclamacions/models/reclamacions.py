@@ -1,4 +1,6 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
+from odoo.exceptions import UserError
+
 
 class Reclamacion(models.Model):
     _name = 'reclamacion.reclamacion'
@@ -32,10 +34,21 @@ class Reclamacion(models.Model):
     def button_cancel_sale_order(self):
         for rec in self:
             sale_order = rec.sale_order_id
-            if sale_order.state not in ['cancel', 'done']:
-                sale_order.action_cancel()
-                for line in sale_order.order_line:
-                    line.product_id.qty_available += line.product_uom_qty
+            if sale_order.state not in ['cancel']:
+                if rec.invoice_count > 0:
+                    for invoice in sale_order.invoice_ids:
+                        if invoice.state == 'posted':
+                            raise UserError(_('La comanda de venta no puede ser cancelada porque tiene facturas contabilizadas'))
+                            break
+                        else:
+                            sale_order._action_cancel()
+                            rec.write({'state': 'resuelta'})
+                            raise UserError(_('La comanda de venta ha sido cancelada y la reclamación resuelta, pero se ha cancelado una factura pendiente de contabilizar'))
+                else:
+                    sale_order._action_cancel()
+                    rec.write({'state': 'resuelta'})
+                    UserError(_('La comanda de venta ha sido cancelada y la reclamación resuelta'))
+
 
     @api.model
     def create(self, vals):
@@ -55,6 +68,10 @@ class Reclamacion(models.Model):
         if 'comment' in vals and vals['comment']:
             vals['state'] = 'en_proceso'
         return super(Reclamacion, self).write(vals)
+
+    
+    
+
     # @api.depends('sale_order_id.picking_ids')
     # def _compute_delivery_count(self):
     #     for rec in self:
