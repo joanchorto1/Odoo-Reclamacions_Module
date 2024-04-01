@@ -49,8 +49,29 @@ class Reclamacion(models.Model):
                     rec.write({'state': 'resuelta'})
                     UserError(_('La comanda de venta ha sido cancelada y la reclamación resuelta'))
 
+
+    @api.model
+    def create(self, vals):
+        if 'sale_order_id' in vals:
+            sale_order = self.env['sale.order'].browse(vals['sale_order_id'])
+            vals['customer_id'] = sale_order.partner_id.id
+            vals['user_id'] = sale_order.user_id.id
+        if 'comment' in vals and vals['comment']:
+            vals['state'] = 'en_proceso'
+        return super(Reclamacion, self).create(vals)
+
+    def write(self, vals):
+        if 'sale_order_id' in vals:
+            sale_order = self.env['sale.order'].browse(vals['sale_order_id'])
+            vals['customer_id'] = sale_order.partner_id.id
+            vals['user_id'] = sale_order.user_id.id
+        if 'comment' in vals and vals['comment']:
+            vals['state'] = 'en_proceso'
+        return super(Reclamacion, self).write(vals)
+
     
     
+
     # @api.depends('sale_order_id.picking_ids')
     # def _compute_delivery_count(self):
     #     for rec in self:
