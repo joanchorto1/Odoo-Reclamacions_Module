@@ -3,3 +3,5 @@ access_property_manager,Property Manager,model_estate_property,base.group_user,1
 access_estate_property_offer,Access Estate Property Offers,model_estate_property_offer,base.group_user,1,1,1,1
 access_estate_property_tag,Access Estate Property Tags,model_estate_property_tag,base.group_user,1,1,1,1
 access_estate_property_type,Access Estate Property Types,model_estate_property_type,base.group_user,1,1,1,1
+access_estate_property,Access Estate Properties,model_estate_property,base.group_user,1,1,1,1
+

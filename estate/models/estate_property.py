@@ -5,7 +5,7 @@ from datetime import timedelta
 class EstateProperty(models.Model):
     _name = 'estate.property'
     _description = 'Real Estate Property'
-
+    id = fields.Many2one('estate.property', string='Propietat')
     name = fields.Char(string='Nom', required=True)
     description = fields.Text(string='Descripció')
     postal_code = fields.Char(string='Codi postal', required=True)

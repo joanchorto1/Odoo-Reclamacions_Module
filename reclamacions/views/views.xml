@@ -8,6 +8,7 @@
                 <form string="Reclamacion">
                     <header>
                         <button name="button_cancel_sale_order" string="Cancelar Pedido de Venta" type="object" class="oe_highlight"/>
+
                     </header>
                     <sheet>
                         <group>
@@ -15,7 +16,7 @@
                             <field name="description"/>
                             <field name="resolution"/>
                             <field name="customer_id"/>
-                            <field name="user_id"/>
+                            <field name="user_id" />
                             <field name="creation_date"/>
                             <field name="modification_date"/>
                             <field name="closing_date"/>
@@ -42,6 +43,7 @@
                     <field name="user_id"/>
                     <field name="creation_date"/>
                     <field name="state"/>
+                                         
                 </tree>
             </field>
         </record>
