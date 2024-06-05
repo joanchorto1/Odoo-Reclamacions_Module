@@ -1,0 +1,44 @@
+<!-- VISTA PERSONALITZADA DE INFORME PERSONALITZAT -->
+<odoo>
+    <record id="action_order_list_custom" model="ir.actions.act_window">
+        <field name="name">Custom Invoice Report</field>
+        <field name="res_model">custom.invoice.report</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">main</field>
+    </record>
+
+    <record id="view_order_list_custom" model="ir.ui.view">
+        <field name="name">invoice.list.custom</field>
+        <field name="model">custom.invoice.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_name"/>
+                <field name="partner_mail"/>
+                <field name="total_amount"/> 
+                <field name="payment_state"/> 
+                <field name="payment_state_count"/>               
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_order_form_custom" model="ir.ui.view">
+        <field name="name">invoice.form.custom</field>
+        <field name="model">custom.invoice.report</field>
+        <field name="arch" type="xml">
+            <form string="Custom Invoice Report">
+                <header>
+                    <button name="%(action_custom_report)d" string="Print" type="action" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="partner_name"/>
+                        <field name="partner_mail"/>
+                        <field name="total_amount"/> 
+                        <field name="payment_state"/> 
+                        <field name="payment_state_count"/>   
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

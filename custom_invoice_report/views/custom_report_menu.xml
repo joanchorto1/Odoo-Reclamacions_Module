@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <!-- Item agregat al menú principal de Invoice -->
+    <menuitem id="menu_invoice_custom_reports" name="Informe Factures Personalitzat"
+              parent="account.menu_finance" sequence="1"/>
+
+    <!-- Submenú para acceder al informe personalizado -->
+    <menuitem id="menu_sale_order_report_custom" name="Informe"
+    parent="menu_invoice_custom_reports" action="action_order_list_custom"/>
+
+</odoo>

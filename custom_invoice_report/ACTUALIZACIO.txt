@@ -1,0 +1,3 @@
+El informe personalitzat funciona, fa falta poder imprimir el repor
+Fa falta en el report de les factures els nous camps
+Fa falta arreglar el COUNT del informe 

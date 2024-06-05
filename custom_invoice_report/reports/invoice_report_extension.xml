@@ -1,0 +1,12 @@
+<odoo>
+    <template id="report_invoice_document_custom" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@class='page']" position="inside">
+            <div class="row mt32 mb32">
+                <div class="col-6">
+                    <strong>Nom i mail del creador de la factura:</strong>
+                    <span t-field="o.partner_name_mail"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
